@@ -9,7 +9,7 @@
             <h4 class="mb-0">Add Shipment</h4>
         </div>
         <div class="card-body">
-            <form method="post" action="{% url 'shipment_store' %}">
+            <form method="post" action="{% url 'shipment_create' %}">
                 {% csrf_token %}
 
                 <!-- Customer Details Section -->

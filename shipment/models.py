@@ -47,7 +47,7 @@ class Shipment(models.Model):
         db_table = 'sm_shipments'
 
 class ShipmentItem(models.Model):
-    shipment = models.ForeignKey(Shipment, on_delete=models.CASCADE)
+    shipment = models.ForeignKey(Shipment, on_delete=models.CASCADE, related_name="shipment_items")
 
     name = models.CharField(max_length=150)
     qty = models.PositiveIntegerField()
