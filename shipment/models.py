@@ -20,7 +20,6 @@ class ShipmentDestination(models.Model):
     address = models.TextField()
     district = models.CharField(max_length=50)
     city = models.CharField(max_length=50)
-    country = models.CharField(max_length=50)
     postal_code = models.CharField(max_length=20)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -34,6 +33,7 @@ class Shipment(models.Model):
 
     tracking_number = models.CharField(max_length=50, unique=True)
     weight = models.DecimalField(decimal_places=2, max_digits=10)
+    qty = models.PositiveIntegerField(default=1)
     price_est = models.DecimalField(decimal_places=2, max_digits=10)
     status = models.CharField(max_length=10, choices=ShipmentStatusEnum.choices,
                               default=ShipmentStatusEnum.PENDING)
