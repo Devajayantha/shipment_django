@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Create Shipment{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header">
+            <h4 class="mb-0">Add Shipment</h4>
+        </div>
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+
+                <!-- Customer Details Section -->
+                <h5 class="mb-3">Customer Details</h5>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="customer_name" class="form-label">Name<span class="text-danger">*</span></label>
+                        <input type="text" name="customer_name" id="customer_name" class="form-control" placeholder="Enter customer name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="customer_email" class="form-label">Email<span class="text-danger">*</span></label>
+                        <input type="email" name="customer_email" id="customer_email" class="form-control" placeholder="Enter email" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="customer_phone" class="form-label">Phone<span class="text-danger">*</span></label>
+                        <input type="text" name="customer_phone" id="customer_phone" class="form-control" placeholder="Enter phone number" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="customer_address" class="form-label">Address<span class="text-danger">*</span></label>
+                        <input type="text" name="customer_phone" id="customer_address" class="form-control" placeholder="Enter address" required>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Address Details Section -->
+                <h5 class="mb-3">Destination Details</h5>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="street" class="form-label">Address<span class="text-danger">*</span></label>
+                        <input type="text" name="street" id="street" class="form-control" placeholder="Enter street address" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="district" class="form-label">District<span class="text-danger">*</span></label>
+                        <input type="text" name="city" id="district" class="form-control" placeholder="Enter district" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="city" class="form-label">City<span class="text-danger">*</span></label>
+                        <input type="text" name="state" id="city" class="form-control" placeholder="Enter city" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="postal_code" class="form-label">Postal Code<span class="text-danger">*</span></label>
+                        <input type="text" name="postal_code" id="postal_code" class="form-control" placeholder="Enter Postal code" required>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Shipment Details Section -->
+                <h5 class="mb-3">Shipment Details</h5>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="product_name" class="form-label">Product Name<span class="text-danger">*</span></label>
+                        <input type="text" name="state" id="product_name" class="form-control" placeholder="Enter product name" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="product_qty" class="form-label">Product Qty<span class="text-danger">*</span></label>
+                        <input type="number" name="state" id="product_qty" class="form-control" placeholder="Enter product qty" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="product_weight" class="form-label">Product Weight<span class="text-danger">*</span></label>
+                        <input type="number" name="state" id="product_weight" class="form-control" placeholder="Enter product weight" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="product_price" class="form-label">Product Expected Price<span class="text-danger">*</span></label>
+                        <input type="number" name="state" id="product_price" class="form-control" placeholder="Enter product expected price" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="expected_delivery_at" class="form-label">Expected Delivery Date<span class="text-danger">*</span></label>
+                        <input type="date" name="expected_delivery_at" id="expected_delivery_at" class="form-control" required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="note" class="form-label">Note</label>
+                        <textarea name="note" id="note" class="form-control" rows="4" placeholder="Enter any additional details..." required></textarea>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a href="{% url 'shipment_list' %}" class="btn btn-outline-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
