@@ -24,6 +24,10 @@ class ShipmentDestination(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    @property
+    def full_address(self):
+        return f'{self.address}, {self.district}, {self.city}, {self.postal_code}'
+
     class Meta:
         db_table = 'sm_shipment_destinations'
 
